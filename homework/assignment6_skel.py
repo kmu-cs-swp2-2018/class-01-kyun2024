@@ -6,13 +6,16 @@ from PyQt5.QtWidgets import (QWidget, QPushButton,
 from PyQt5.QtCore import Qt
 
 class ScoreDB(QWidget):
+    '''
+    Hello ScoreDB
+    '''
     def __init__(self):
         super().__init__()
         self.initUI()
         self.dbfilename = 'assignment6.dat'
         self.scoredb = []
         self.readScoreDB()
-        self.sortScoreDB(self.key_combo.currentText())
+        self.sortScoreDB()
         self.showScoreDB()
 
     def initUI(self):
@@ -122,11 +125,15 @@ class ScoreDB(QWidget):
         self.result.setText(stream)
         pass
 
-    # sort ScoreDB by flag
-    def sortScoreDB(self,key):
+    def sortScoreDB(self):
+        '''sort ScoreDB by flag'''
+        key = self.key_combo.currentText()
         self.scoredb.sort(key=lambda x: x[key])
 
     def buttonClicked(self):
+        '''
+
+        '''
         sender = self.sender()
         if sender.text() == "Add":
             self.AddElement()
@@ -138,7 +145,7 @@ class ScoreDB(QWidget):
         elif sender.text() == "Inc":
             self.IncreaseScore()
         elif sender.text() == "Show":
-            self.sortScoreDB(self.key_combo.currentText())
+            self.sortScoreDB()
         self.showScoreDB()
         pass
 
