@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5.QtWidgets import QLineEdit, QToolButton
 from PyQt5.QtWidgets import QSizePolicy
 from PyQt5.QtWidgets import QLayout, QGridLayout
+from PyQt5.Qt import QStyle
 
 
 class Button(QToolButton):
@@ -24,11 +25,14 @@ class Calculator(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        self.setStyleSheet("background-color: rgb(255,243,212)")
+
         # Display Window
         self.display = QLineEdit('0')
         self.display.setReadOnly(True)
         self.display.setAlignment(Qt.AlignRight)
         self.display.setMaxLength(30)
+        self.display.setStyleSheet("background-color: white")
 
         # Digit Buttons
         self.digitButton = [Button(str(x)) for x in range(0, 10)]

@@ -1,3 +1,4 @@
-This is a sample file for git testing
-Edited
-Hello!
+Name : Min-hyoung Kim
+GitHub ID : kyun2024
+email : cune2024@gmail.com
+
